@@ -37,7 +37,7 @@ export default {
       this.$router.push("/rentalService");
     },
     index() {
-      this.$router.push("/");
+      this.$router.push("/index");
     },
     historyOrder() {
       this.active = "2";
@@ -62,7 +62,7 @@ svg {
 .aside {
   display: inline-block;
   width: 200px;
-  height: 724px;
+  height: 756px;
   background-color: rgba(53, 73, 94,1);
   padding-right: 30px;
 

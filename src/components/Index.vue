@@ -2,7 +2,7 @@
   <div class="body">
 
     <header>
-      <img src="../../public/img/logo.png" alt="图片无法显示">
+      <img src="../../public/img/logo3.png" alt="图片无法显示">
     </header>
     <div class="main radius">
 
@@ -30,8 +30,8 @@
         <div class="defaultAvatar"></div>
         <div class="greetings">Hi!你好!</div>
         <div class="accountOperation">
-          <span class="radius" @click.prevent="login"><a href="">登录</a></span>
-          <span class="radius" @click.prevent="goRegister"><a href="">注册</a></span>
+          <span class="radius login" @click.prevent="login"><a href="">登录</a></span>
+          <span class="radius register" @click.prevent="goRegister"><a href="">注册</a></span>
         </div>
       </div>
 
@@ -123,7 +123,7 @@ export default {
   },
   mounted() {
     this.startInterval();
-  },
+  }
 }
 
 
@@ -139,7 +139,7 @@ export default {
 }
 
 .body {
-  background-color: rgba(53, 73, 94,1);
+  background-color: rgba(234, 232, 235,1);
   /*background: image("") no-repeat;*/
   width: 100%;
 
@@ -217,7 +217,7 @@ header h2 {
 }
 
 .li:hover {
-  background-color: rgba(53, 73, 94,0.8);
+  background-color: rgba(254, 96, 1,0.9);
   border-radius: 20px;
 }
 
@@ -326,12 +326,15 @@ header h2 {
   display: inline-block;
   width: 80px;
   height: 40px;
-  background-color: orange;
   margin-right: 10px;
-  opacity: 0.8;
 }
-.accountOperation span:hover{
-  opacity: 1;
+.login {
+  background-color: rgb(255, 95, 0);
+}
+
+.register {
+  background-color: rgb(255, 116, 0);
+
 }
 
 .accountOperation a {

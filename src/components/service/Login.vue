@@ -34,7 +34,7 @@
         <div :class="{'password':true, 'passwordForm':!click}">
           <input id="phone" type="text" placeholder="请输入手机号码">
           <input id="verificationCode" type="text" placeholder="请输入验证码">
-          <span class="tip" @click="skip">获取验证码</span>
+          <span class="tip" @click="clickOnVerificationCode">{{content}}</span>
         </div>
 
         <div class="submit" @click="skip">登录</div>
@@ -49,6 +49,21 @@
       </div>
     </div>
 
+      <ul class="footer">
+        <li @click="skip">关于我们</li>
+        <li @click="skip">合作伙伴</li>
+        <li @click="skip">营销中心</li>
+        <li @click="skip">廉政举报</li>
+        <li @click="skip">联系客服</li>
+        <li @click="skip">开放平台</li>
+        <li @click="skip">诚征英才</li>
+        <li @click="skip">联系我们</li>
+        <li @click="skip">网站地图</li>
+        <li @click="skip">隐私权政策</li>
+        <li @click="skip">法律声明</li>
+        <li @click="skip" class="end">知识产权</li>
+      </ul>
+
   </header>
 </template>
 
@@ -62,7 +77,10 @@ export default {
     return {
       click: false,
       passwordLook: true,
-      passwordType: 'password'
+      passwordType: 'password',
+      content: '请输入验证码',
+      timer: null,
+      waitTime: 60
     }
   },
   components: [],
@@ -74,7 +92,26 @@ export default {
       this.click = true;
     },
     index() {
-      this.$router.push("/");
+      this.$router.push("/index");
+    },
+    clickOnVerificationCode() {
+
+      if(this.timer !== null) {
+        return;
+      }
+      this.content = this.waitTime-- + "秒后重发"
+      this.timer = setInterval(() => {
+        this.content = this.waitTime-- + "秒后重发"
+      },1000)
+
+      setTimeout(() => {
+        this.content = "请输入验证码";
+        clearInterval(this.timer);
+        this.timer = null;
+        this.waitTime = 60;
+      },60000);
+
+      this.skip();
     },
     skip() {
       Message({text:"后端接口未连接",type:"error"})
@@ -118,11 +155,11 @@ svg {
 
 header {
   height: 800px;
-  background-color: rgb(255, 255, 255);
+  background-color: white;
 }
 
 .logo {
-  height: 50px;
+  height: 40px;
   position: absolute;
   left: 170px;
   top: 60px;
@@ -130,21 +167,21 @@ header {
 }
 
 .main {
-  height: 530px;
+  height: 570px;
   background: url("../../../public/img/img_3.png");
   background-size: cover;
-  background-position-y: -280px;
+  background-position-y: -230px;
   position: relative;
-  top: 100px;
+  top: 80px;
 }
 
 .login {
-  background-color: rgba(250, 244, 251,0.97);
+  background-color: rgba(250, 244, 251,0.98);
   width: 300px;
   height: 300px;
   position: absolute;
-  right: 200px;
-  top: 70px;
+  right: 240px;
+  top: 110px;
   padding: 18px;
 }
 
@@ -235,5 +272,35 @@ header {
 
 .thirdParty span {
   margin-right: 5px;
+}
+
+.footer {
+  width: 1200px;
+  margin: 140px auto 0 auto;
+  border-top: 1px solid rgba(108, 108, 108,0.3);
+  border-bottom: 1px solid rgba(108, 108, 108,0.3);
+  font-size: 5px;
+  padding-top: 12px;
+  padding-bottom: 30px;
+  color: rgb(108, 108, 108);
+  text-align: center;
+}
+.footer li{
+  float: left;
+  width: 97px;
+  list-style: none;
+  cursor: pointer;
+}
+.footer li:hover{
+  float: left;
+  width: 97px;
+  list-style: none;
+  cursor: pointer;
+  color: rgb(255, 68, 0);
+}
+
+.footer li:not(.end) {
+  border-right: 1px solid rgba(108, 108, 108,0.3);
+
 }
 </style>

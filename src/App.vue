@@ -30,6 +30,5 @@ export default {
  }
 
 div {
-  background-color: rgba(243, 243, 244,1);
 }
 </style>

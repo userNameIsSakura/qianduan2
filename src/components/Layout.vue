@@ -6,7 +6,7 @@
         <li><a href=""><span @click.prevent="goRegister">免费注册</span></a></li>
       </ul>
       <ul class="right">
-        <li><a href=""><span>首页</span></a></li>
+        <li><a href=""><span @click.prevent="index">首页</span></a></li>
         <li><a href=""><span @click.prevent="goOrder">订单</span></a></li>
         <li><a href=""><span @click.prevent="skip">联系客服</span></a></li>
       </ul>
@@ -33,6 +33,9 @@ export default {
     },
     goRegister() {
       this.$router.push("/register")
+    },
+    index() {
+      this.$router.push("/index");
     },
     skip() {
       Message({text:"功能暂未开发",type:"warn"})

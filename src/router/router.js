@@ -4,6 +4,10 @@ const routes = [
         redirect: '/index'
     },
     {
+        path: '/mobile',
+        redirect: '/mobile/index'
+    },
+    {
         path: '/box',
         component: import('@/components/Layout'),
         children: [
@@ -36,16 +40,33 @@ const routes = [
         ]
     },
     {
-        path: "/transit",
-        component: () => import("@/components/Transit")
+      path: '/mobile/register',
+      component: import('@/components/mobile/MobileRegister')
     },
     {
-        path: "/test2",
-        component: () => import("@/components/tool/Message")
-    },    {
-        path: "/test",
-        component: () => import("@/components/tool/Test")
+        path: '/mobile',
+        redirect: '/mobile/index'
     },
+    {
+        path: '/mobileLayout',
+        component: import('@/components/mobile/MobileLayout'),
+        children: [
+            {
+                path: '/mobile/login',
+                component: () => import('@/components/mobile/MobileLogin'),
+            },
+            {
+                path: '/mobile/index',
+                component: () => import('@/components/mobile/MobileIndex'),
+            },
+            {
+                path: '/mobile/rentalService',
+                component: () =>  import('@/components/mobile/MobileRental'),
+            },
+        ]
+
+    },
+
 ]
 
 export default routes
