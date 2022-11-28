@@ -190,7 +190,6 @@ header h2 {
   padding: 30px 20px;
   position: relative;
   height: 440px;
-
 }
 
 .radius {
@@ -226,14 +225,14 @@ header h2 {
 }
 
 .preview {
+  width: 500px;
+  height: 352px;
 
   display: inline-block;
   position: absolute;
   left: 320px;
   top: 80px;
 
-  width: 500px;
-  height: 352px;
   cursor: default;
   user-select: none;
 }
@@ -297,7 +296,6 @@ header h2 {
   position: absolute;
   top: 160px;
   left: 930px;
-
 }
 
 .defaultAvatar {

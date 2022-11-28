@@ -111,11 +111,12 @@ th {
 }
 
 .rent {
-  position: absolute;
+  width: 500px;
   padding: 20px;
+
+  position: absolute;
   left: 40%;
   top: 15%;
-  width: 500px;
   background-color: white;
 }
 
